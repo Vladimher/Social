@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover HUMSS</title>
+    <style>
+        body {
+            background-image: url("https://media.gettyimages.com/id/1356443550/video/abstract-glitter-background-bokeh-shallow-depth-of-field-selective-focus-green-version.jpg?s=640x640&k=20&c=urYXnur50snEI7ow5P16924Qa7T1RTYm2gKao5V9664=");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+
+        img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 100px;
+            width: 120px;
+            z-index: 1;
+        }
+
+        h1, h3 {
+            margin: 0;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(80, 200, 120, 0.6);
+        }
+
+        h1 {
+            font-size: 4em;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        h3 {
+            font-size: 2.5em;
+            animation: fadeInDown 2s ease-out;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            height: 50px;
+            width: 230px;
+            font-size: 20px;
+            color: white;
+            background-color: #50c878;
+            border: 2px solid white;
+            border-radius: 100px;
+            cursor: pointer;
+            z-index: 1;
+            transition: all 0.4s;
+            box-shadow: 0 0 20px rgba(80, 200, 120, 0.6);
+        }
+
+        button:hover {
+            background-color: #043927;
+            border-color: white;
+            box-shadow: 0 0 40px rgba(80, 200, 120, 0.9);
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471952702_1541669816533136_1690496519320867250_n.png?stp=dst-png_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFajq7ij9EgUjoVa4BghGCa7NnCDheLv6bs2cIOF4u_pu2dk0l6MvsVTFMZJdiLqIIw2Z-EWfodmfneFH59h3Cd&_nc_ohc=se_LoCSO12cQ7kNvgFcpqsm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gHKMVE-Mfh1o897Sm1apgsxuK43oPxQIUBtwz4_KBwWjA&oe=67A550C8" alt="Logo">
+
+    <h1>Discover HUMSS</h1>
+    <h3>(Humanities and Social Sciences)</h3>
+
+    <button onclick="openNextTab()">Let's Explore</button>
+
+    <script>
+        function openNextTab() {
+            window.open("Home.html", "_blank");
+        }
+    </script>
+</body>
+</html>

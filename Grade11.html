@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade11 Page</title>
+    <style>
+        body {
+            background-image: url("https://media.gettyimages.com/id/1356443550/video/abstract-glitter-background-bokeh-shallow-depth-of-field-selective-focus-green-version.jpg?s=640x640&k=20&c=urYXnur50snEI7ow5P16924Qa7T1RTYm2gKao5V9664=");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        nav {
+            background-color: rgba(3, 172, 19, 0.9);
+            width: 98.3%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-section img {
+            height: 60px;
+            width: 80px;
+            margin-right: 20px;
+        }
+
+        .school-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: white;
+        }
+
+        .school-info h3 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li button {
+            background-color: rgba(3, 172, 19, 0.9);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li button:hover {
+            background-color: #043927;
+            transform: scale(1.1);
+        }
+
+        nav ul li .dropdown {
+            display: none;
+            position: absolute;
+            background-color: rgba(3, 172, 19, 0.9);
+            min-width: 160px;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        nav ul li .dropdown button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        nav ul li .dropdown button:hover {
+            background-color: #043927;
+        }
+
+        .header-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            width: 95%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 20px;
+            width: 95%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .content-box img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .footer-box {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            width: 94.3%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+		
+		.upperheader-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 95%; 
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+		
+		.image-1 {
+		    position: absolute;
+            top:4px;
+            left: 10px;
+            height: 60px;
+            width: 80px;
+		}
+		
+		h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+		
+		h3 {
+            font-size: 16px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+                         0 0 30px rgba(255, 255, 255, 0.6), 
+                         0 0 45px rgba(255, 255, 255, 0.4);
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+		
+		h2 {
+		    font-size: 30px;
+		}
+		
+		.footer-box p {
+            font-size: 14px;
+            margin: 0;
+        }
+		
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        body > * {
+            animation: fadeIn 1.5s ease-out;
+        }
+	    .scroll-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .scroll-buttons button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(3, 172, 19, 0.9);
+            color: black;
+            border-radius: 5px;
+        }
+        .scroll-buttons button:hover {
+            background-color: #043927;
+        }
+
+    </style>
+</head>
+<script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+<body>
+<div class="scroll-buttons">
+        <button onclick="scrollToTop()">Go to Top</button>
+        <button onclick="scrollToBottom()">Go to Bottom</button>
+    </div>
+
+<nav>
+    <div class="left-section">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471952702_1541669816533136_1690496519320867250_n.png?stp=dst-png_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFajq7ij9EgUjoVa4BghGCa7NnCDheLv6bs2cIOF4u_pu2dk0l6MvsVTFMZJdiLqIIw2Z-EWfodmfneFH59h3Cd&_nc_ohc=se_LoCSO12cQ7kNvgFcpqsm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gHKMVE-Mfh1o897Sm1apgsxuK43oPxQIUBtwz4_KBwWjA&oe=67A550C8" alt="Logo">
+        <div class="school-info">
+            <h3>Virginia Ramirez-Cruz National High School</h3>
+            <h3>Siling Bata, Pandi, Bulacan</h3>
+        </div>
+    </div>
+    <ul>
+        <li><button onclick="window.open('Home.html')">Home</button></li>
+        <li>
+            <button>Grade Level</button>
+            <ul class="dropdown">
+                <li><button onclick="window.open('Grade11.html')">Grade 11</button></li>
+                <li><button onclick="window.open('Grade12.html')">Grade 12</button></li>
+            </ul>
+        </li>
+        <li><button onclick="window.open('COption.html')">Course Options</button></li>
+        <li><button onclick="window.open('About.html')">About Us</button></li>
+    </ul>
+</nav>
+
+	<div class="header-box">
+        <h1>Grade 11 HUMSS Subjects</h1>
+    </div>
+	
+	<div class="upperheader-box">
+	</div>
+	
+	<div class="header-box">
+        <h1>1st Semester</h1>
+	</div>
+	
+	<div class="header-box">
+        <h1>Specialization</h1>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXscEJMg5b_3utSM5glI-ap4oSJ992IvxaJg&s" alt="DISS Image">
+		<div>
+            <h2>Disciplines and Ideas in the Social Sciences (DISS)</h2>
+		    <p>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Disciplines and Ideas in the Social Sciences discusses various concepts, theories, and principles in the social sciences to enable students to analyze social problems and issues, propose solutions, and identify ways to take action in service of their community and country.</p>
+        </div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://img.lazcdn.com/g/p/mdc/568ca02815bf57889032a53aaddf418a.jpg_720x720q80.jpg">
+		<div>
+		    <h2> 21st Century Literature from the Philippines and the World </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎ 21st Century Literature from the Philippines and the World is a senior high school subject which aims to engage students in appreciation and critical study of 21st Century Literature from the Philippines and the World, encompassing their various dimensions, genres, elements, structure, contexts, and traditions. </p>
+		</div>
+	</div>
+	
+	<div class="header-box">
+        <h1>Core subjects</h1>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://tse4.mm.bing.net/th?id=OIP.XQG5z8EjBuTQULm-E6WiMwHaFP&rs=1&pid=ImgDetMain">
+		<div>
+		    <h2> General Mathemarics </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎ General Mathematics aims to develop learners' understanding of concepts and techniques drawn from number and algebra, trigonometry and world geometry, sequences, finance, networks and decision mathematics and statistics, in order to solve applied problems. </p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H2lBrKEnWi770B7V_ElpBqQK7_AaGqnI1w&s">
+		<div>
+		    <h2> Physical Education and Health </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Physical Education and Health offers experiential learning for learners to adopt an active life for fitness and lifelong health. </p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0JJQcS0dd_m0rjVkYnRD2IDJ5_q_lh7l7HQ&s">
+		<div>
+		    <h2> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎ Study towards research on the nature, characteristics, development, use, and application of the Filipino language in communicative and cultural situations in Philippine society.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="data:image/jpeg;base64,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">
+		<div>
+		    <h2> Earth and LIfe Sciences </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎ Earth science encompasses various types, including meteorology, geology, and oceanography. Life science is a branch of science that focuses on studying living things, such as plants, animals, and human biology. It helps us understand the world around us. </p>
+		</div>
+	</div>
+	
+	
+	<div class="content-box">
+	    <img src="https://eapp11kepler.home.blog/wp-content/uploads/2019/09/image-7.png?w=370">
+		<div>
+		    <h2> English for Academic and Professional Purposes </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎ The EAPP Program mission is to prepare English language users to be confident and competent in both written and spoken communication through quality instruction in English that aims to develop linguistic, cultural, social and academic skills, highly contextualized and meaningful classroom practices</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI_64c0fOrIF4zbWkPPeDHwYdqguAJGA6UGw&s">
+		<div>
+		    <h2> Oral Communication in Context </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎Oral communication is a specific form of information exchange relating to the transmission of ideas verbally from one person or group to another. Oral communication can be formal and they are used most often in this manner during business meetings, classroom lectures, or political speeches.</p>
+		</div>
+	</div>
+	
+	<div class="upperheader-box">
+	</div>
+	
+	<div class="header-box">
+        <h1>2nd Semester</h1>
+	</div>
+	
+	<div class="header-box">
+        <h1>Specialization</h1>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjS6D6huVJhFRXOpqZlKFu_JUW9HyGHBSXRXC3Dxp1p96wYGPNdj9OUEMlpiQ_wHm5ux7SkWnKpU8Yb9XXrs8mr_MgXKuCx8HrHfNIGWTMt4lhqG6tn6W8tkIBHWe5DNgSjXXxXAHzHKm2j/s640/diass.png">
+		<div>
+		    <h2>Disciplines and Ideas in Applied Social Sciences(DIASS)</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Disciplines and Ideas in the Applied Social Sciences introduces the applied social sciences of counseling, social work, and communication, which draw their foundation from the theories and principles of psychology, sociology, anthropology, and other social sciences.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXqa8_KUE2pBX61qyJwv1_mub4ik5I3zojRQXH2fzL8pEaZHVvw1lvG9kBwhgIL4tVsDCVUMlI5-2EpSJDxmphxuTDjqwG2ROcIoluxrrfoHxI7q52F8aLy-sEFxStGACdfe777IQ9cHhT/w1200-h630-p-k-no-nu/ppg+cover+photo.png">
+		<div>
+		    <h2>Philippine Politics and Governance</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Politics in the Philippines are governed by a three-branch system of government. The country is a democracy, with a president who is directly elected by the people and serves as both the head of state and the head of government.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizEf0tfQUxMdsw8tOQOyI6QyHwaZ1ic98cyRWLDdMhIjc6VHyI23ABzeaem_UDgBa_I31Pav7nc8L-leDU6AHAVBt1wR0Cqa235mm1RkM7lMUnP1n4do48igXAUz8W7SzgQ_eEKlR5XKoO/s400/cover+photo.png">
+		<div>
+		    <h2>Practical Research 1</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Practical Research is one of the subjects in senior high school which aims to develop the student's critical thinking and problem solving skills. Research output of students is either quantitative or qualitative. As a culminating activity in research, students need to present their research output through oral defense.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6RDVEExM3tAZQHO35Oz0flQPp7NgBIRoL8Q&s">
+		<div>
+		    <h2>Pagbasa at Pagsusuri ng Iba't Ibang Teksto Tungo sa Pananaliksik</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  This lesson is about recognizing different types of text such as informative, descriptive, persuasive, narrative and procedural text.</p>
+		</div>
+	</div>
+	
+	<div class="header-box">
+        <h1>Core Subjects</h1>
+	</div>
+	
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS6C4PY9ZsiDldahVfgcScvYmAoL-vFVNRdw&s">
+		<div>
+		    <h2>Physical Science</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Physical science is the study of the inorganic world. That is, it does not study living things. (Those are studied in biological, or life, science.) The four main branches of physical science are astronomy, physics, chemistry, and the Earth sciences, which include meteorology and geology.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://media.licdn.com/dms/image/v2/C4E12AQG2gC7jJXOvjQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1604310994662?e=2147483647&v=beta&t=eavuGAU0Wwu8ZxwwAa8abZC_FYD6Bk0dXLR-uA5I5Tw">
+		<div>
+		    <h2>Statistic and Probability</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Probability And Statistics are the two important concepts in Maths. Probability is all about chance. Whereas statistics is more about how we handle various data using different techniques. It helps to represent complicated data in a very easy and understandable way.</p>
+		</div>
+	</div>
+
+	<div class="content-box">
+	    <img src="https://d3j0t7vrtr92dk.cloudfront.net/mtcmedicinestlino/1599947406_0.png">
+		<div>
+		    <h2>Personal Development</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  The main topics covered in the Personal Development curriculum include self-development, developing the whole person, developmental stages in adolescence, challenges of adolescence, coping with stress, powers of the mind, mental health and well-being, emotional intelligence, personal and social relationships</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://www.english-efl.com/wp-content/uploads/2019/12/reading-writing.jpg">
+		<div>
+		    <h2>Reading and Writing Skills</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Reading and Writing is a core topic in the Senior High School curriculum that teaches students how to read and write in a variety of contexts other than poetry, fiction, and drama.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H2lBrKEnWi770B7V_ElpBqQK7_AaGqnI1w&s">
+		<div>
+		    <h2> Physical Education and Health </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Physical Education and Health offers experiential learning for learners to adopt an active life for fitness and lifelong health. </p>
+		</div>
+	</div>
+	
+	<div class="upperheader-box">
+	</div>
+	
+<div class="footer-box">
+    <p>Copyright © 2025 | All Rights Reserved</p>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade12 Page</title>
+    <style>
+        body {
+            background-image: url("https://media.gettyimages.com/id/1356443550/video/abstract-glitter-background-bokeh-shallow-depth-of-field-selective-focus-green-version.jpg?s=640x640&k=20&c=urYXnur50snEI7ow5P16924Qa7T1RTYm2gKao5V9664=");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        nav {
+            background-color: rgba(3, 172, 19, 0.9);
+            width: 98.3%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-section img {
+            height: 60px;
+            width: 80px;
+            margin-right: 20px;
+        }
+
+        .school-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: white;
+        }
+
+        .school-info h3 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li button {
+            background-color: rgba(3, 172, 19, 0.9);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li button:hover {
+            background-color: #043927;
+            transform: scale(1.1);
+        }
+
+        nav ul li .dropdown {
+            display: none;
+            position: absolute;
+            background-color: rgba(3, 172, 19, 0.9);
+            min-width: 160px;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        nav ul li .dropdown button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        nav ul li .dropdown button:hover {
+            background-color: #043927;
+        }
+
+        .header-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            width: 95%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 20px;
+            width: 95%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .content-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover; 
+            margin-right: 20px;
+            border: 3px solid #333; 
+        }
+	    
+        .footer-box {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            width: 94.3%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+
+        .upperheader-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 95%;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+		
+		.image-1 {
+		    position: absolute;
+            top:4px;
+            left: 10px;
+            height: 60px;
+            width: 80px;
+		}
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+		
+		h3 {
+            font-size: 16px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+                         0 0 30px rgba(255, 255, 255, 0.6), 
+                         0 0 45px rgba(255, 255, 255, 0.4);
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        .footer-box p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        body > * {
+            animation: fadeIn 1.5s ease-out;
+        }
+        .scroll-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .scroll-buttons button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(3, 172, 19, 0.9);
+            color: black;
+            border-radius: 5px;
+        }
+        .scroll-buttons button:hover {
+            background-color: #043927;
+        }
+
+    </style>
+</head>
+<script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+<body>
+<div class="scroll-buttons">
+        <button onclick="scrollToTop()">Go to Top</button>
+        <button onclick="scrollToBottom()">Go to Bottom</button>
+    </div>
+<nav>
+    <div class="left-section">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471952702_1541669816533136_1690496519320867250_n.png?stp=dst-png_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFajq7ij9EgUjoVa4BghGCa7NnCDheLv6bs2cIOF4u_pu2dk0l6MvsVTFMZJdiLqIIw2Z-EWfodmfneFH59h3Cd&_nc_ohc=se_LoCSO12cQ7kNvgFcpqsm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gHKMVE-Mfh1o897Sm1apgsxuK43oPxQIUBtwz4_KBwWjA&oe=67A550C8" alt="Logo">
+        <div class="school-info">
+            <h3>Virginia Ramirez-Cruz National High School</h3>
+            <h3>Siling Bata, Pandi, Bulacan</h3>
+        </div>
+    </div>
+    <ul>
+        <li><button onclick="window.open('Home.html')">Home</button></li>
+        <li>
+            <button>Grade Level</button>
+            <ul class="dropdown">
+                <li><button onclick="window.open('Grade11.html')">Grade 11</button></li>
+                <li><button onclick="window.open('Grade12.html')">Grade 12</button></li>
+            </ul>
+        </li>
+        <li><button onclick="window.open('COption.html')">Course Options</button></li>
+        <li><button onclick="window.open('About.html')">About Us</button></li>
+    </ul>
+</nav>
+
+    <div class="upperheader-box"></div>
+
+    <div class="header-box">
+        <h1>Programmers</h1>
+    </div>
+
+    <div class="upperheader-box"></div>
+
+<div class="content-container">
+    <div class="content-box">
+        <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/475193303_600894762794619_253314333510202475_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEy-mojwFnAfHeegAoXnN6qqV4YWKtIArupXhhYq0gCu8B4bk3QXkZbXkyFubT4wMw2D_rpewc0l3SOuz2GaL_C&_nc_ohc=L7SvURmuzOkQ7kNvgGVgBth&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD1gEOof94WccI9RZBo1VfPMK1gVzgYGmV1Dzl6eVxrUPpBg&oe=67C91DA6" alt="Meriel Gutierrez">
+        <div>
+            <h2>Vladimher Navarro</h2>
+            <p>Email: vladimhernavarro24@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.15752-9/473613664_9284537568280590_9076508760060435343_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFQpXLXxE1gTFSkIcVyCldezJK90HGAvlbMkr3QcYC-ViLx8-4sZb5eUt7kuHEARrUYFi-KdUq8BBPYUY35BR_C&_nc_ohc=5pdq6tobkxcQ7kNvgEgonSB&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=03_Q7cD1gHJcwjNnVINtwv9PbWYugWR_nXztrocyrGMPHHfTcIn2g&oe=67C92394" alt="Meriel Gutierrez">
+        <div>
+            <h2>Jomel Esteban</h2>
+			<p>Email: jomelesteban160@gmail.com</p>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <img src="https://scontent.fmnl8-5.fna.fbcdn.net/v/t1.15752-9/476492226_495516429907119_6877033514558450116_n.png?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFATkJ_tPxkiNN7OB03REt6Z7OwD6-m4_1ns7APr6bj_fK0U-HRhUlO4MhZszEq9hsBnEtj4CtWN0wpXmjoI8eo&_nc_ohc=1X1kgVCORj0Q7kNvgFVyQLo&_nc_zt=23&_nc_ht=scontent.fmnl8-5.fna&oh=03_Q7cD1gEGfZwz0x6EarVdI54mPcgK2xQp5dQSNdZ1dtpSl0VtWQ&oe=67C93872" alt="Meriel Gutierrez">
+    <div>
+            <h2>Meriel Gutierrez</h2>
+			<p>Email: merielgutierrez122306@gmail.com</p>
+        </div>
+    </div>
+	
+	<div class="content-box">
+        <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/474849526_632394569331446_3139229014981890817_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHlD7E8qI3gCPcTjgINwsY3b4ExA6cV_CJvgTEDpxX8IvKEIx2CYnFSCHkSZEWvh5t6MCJ-NhSYr4F7ONHA9iga&_nc_ohc=3Az7LDZeBa4Q7kNvgFdvsh5&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD1gGZvvejRKlUDmuxmDMLh5QC7VrBbXCZkmQXo92aC_s7TA&oe=67C93731" alt="Meriel Gutierrez">
+    <div>
+            <h2>Raven Lorence Dela Cruz</h2>
+			<p>Email: ravenlorence07@gmail.com</p>
+        </div>
+    </div>
+	
+	<div class="content-box">
+        <img src="https://scontent.fmnl8-4.fna.fbcdn.net/v/t1.15752-9/475424903_1323050635391853_1640275057568017781_n.jpg?stp=dst-jpg_s2048x2048_tt6&_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHafkhudwpjSeWLeqGO1avL698iSj_9PGfr3yJKP_08Zw9mFapJFtyNKoCCu_P9j16h-4LD0r42mI8vSxWZ4WB7&_nc_ohc=k2wC02XTrpQQ7kNvgHfwps7&_nc_zt=23&_nc_ht=scontent.fmnl8-4.fna&oh=03_Q7cD1gFbzJFGnfBnf4V6Yh-tUAszEZPoJJ8EmlYE0J1DzC8vfw&oe=67C92F4F">
+		<div>
+            <h2>Brian Junsay</h2>
+			<p>Email: morefuyu@gmail.com</p>
+        </div>
+    </div>
+	
+    <div class="content-box">
+        <img src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.15752-9/475152180_492334290263586_555089487400076369_n.png?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEHPUDcw_e_NNcmtA2VThntr_HbBNtZEAKv8dsE21kQAu1bTq_E326kjZAEne7Y1j5kdJlCuxwbWw4OzVtKPTDM&_nc_ohc=qPBTg6bq8nQQ7kNvgGM5E40&_nc_zt=23&_nc_ht=scontent.fmnl8-2.fna&oh=03_Q7cD1gGGVI76HHzU3vdd3oN4KrkkOXAqHY_gcG9fFZ7LylNXLw&oe=67C930FA" alt="Meriel Gutierrez">
+    <div>
+            <h2>Dexter Domingo</h2>
+			<p>Email: dexterdomingo132@gmail.com</p>
+        </div>
+    </div>
+	
+	<div class="content-box">
+        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.15752-9/474440098_1343726243722681_3711584770219895787_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE500eMJ9c-rK8mroOvVV9zc-YCDxdKZHtz5gIPF0pke-T6O-_39yQSkdxc_iAW9rUiiJb9s6drsuqgLBNGpzUY&_nc_ohc=G1qHcec2RccQ7kNvgEjvpYM&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=03_Q7cD1gGz2AxKPupfGSSQW1pDcGpWQ1Bag81nm1_Ud0daNK2sjA&oe=67C931FB" alt="Meriel Gutierrez">
+    <div>
+            <h2>Aaron Lumagbas</h2>
+			<p>Email: timbaljay45@gmail.com</p>
+        </div>
+    </div>
+	
+	<div class="content-box">
+        <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t1.15752-9/476497585_1164073965239737_516527961877987575_n.png?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeF-yGUiB4frGaagYUE1eAgkG6aPHpyeVqkbpo8enJ5WqcG5LALt2zzd2YWyNXgP5vxR2FYpy66A4jjxYZWePJ6t&_nc_ohc=I-Mmr18c0Y8Q7kNvgEgoEva&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&oh=03_Q7cD1gFI0YwlpCoHGt5xKdO3AAhgtsegRXNrTM9C8HxQWXugIg&oe=67C915D9" alt="Meriel Gutierrez">
+    <div>
+            <h2>Ervin Jay Barcelona</h2>
+			<p>Email: ervinjaybarcelona2@gmail.com</p>
+        </div>
+    </div>
+	
+	<div class="content-box">
+        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.15752-9/473829908_1907031186371401_6234758828278991412_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGLpu_eoJ6-qLQEkcKa3kjLIr7xPnvViQsivvE-e9WJC62yeJMtoiluXe5s4UrD4hdZ11fJX2SqwJwDSc5gqT69&_nc_ohc=sUwlqjAFulwQ7kNvgHbLcuy&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=03_Q7cD1gEK7153duyvIY1-CqzW6OVAm82zPg8AYr1Vn2rR7h4Cfw&oe=67C934EC" alt="Meriel Gutierrez">
+    <div>
+            <h2>Roderick Caber</h2>
+			<p>Email: pogiakothuglife022@gmail.com</p>
+        </div>
+    </div>
+	
+    <div class="content-box">
+        <img src="https://scontent.fmnl8-4.fna.fbcdn.net/v/t1.15752-9/476480994_1531391297546581_3828479352754848552_n.png?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFfxB7a9pFce3FyhyQy0QYPXCB1TNzmxD9cIHVM3ObEP-QRDQ05SrjZeiqHgLygrkMT3GgQP0SDyHVMoG1F6n-X&_nc_ohc=dS0Z1H5ammIQ7kNvgGR1d2C&_nc_zt=23&_nc_ht=scontent.fmnl8-4.fna&oh=03_Q7cD1gH2UE2_wo2I1FnB1VPdGl8fHGUxCpFVWju0o0oNeiqcOQ&oe=67C9300F" alt="Johnkieth Valencia">
+        <div>
+            <h2>Johnkieth Valencia</h2>
+			<p>Email: johnskiemenzon@gmail.com</p>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="footer-box">
+    <p>Copyright © 2025 | All Rights Reserved</p>
+</div>
+</body>
+</html>

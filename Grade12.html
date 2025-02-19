@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade12 Page</title>
+    <style>
+        body {
+            background-image: url("https://media.gettyimages.com/id/1356443550/video/abstract-glitter-background-bokeh-shallow-depth-of-field-selective-focus-green-version.jpg?s=640x640&k=20&c=urYXnur50snEI7ow5P16924Qa7T1RTYm2gKao5V9664=");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        nav {
+            background-color: rgba(3, 172, 19, 0.9);
+            width: 98.3%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-section img {
+            height: 60px;
+            width: 80px;
+            margin-right: 20px;
+        }
+
+        .school-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: white;
+        }
+
+        .school-info h3 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li button {
+            background-color: rgba(3, 172, 19, 0.9);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li button:hover {
+            background-color: #043927;
+            transform: scale(1.1);
+        }
+
+        nav ul li .dropdown {
+            display: none;
+            position: absolute;
+            background-color: rgba(3, 172, 19, 0.9);
+            min-width: 160px;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        nav ul li .dropdown button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        nav ul li .dropdown button:hover {
+            background-color: #043927;
+        }
+
+        .header-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            width: 95%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            padding: 20px;
+            width: 95%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .content-box img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .footer-box {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            width: 94.3%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+		
+		.upperheader-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 95%; 
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+		
+		.image-1 {
+		    position: absolute;
+            top:4px;
+            left: 10px;
+            height: 60px;
+            width: 80px;
+		}
+		
+		h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+		
+		h3 {
+            font-size: 16px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+                         0 0 30px rgba(255, 255, 255, 0.6), 
+                         0 0 45px rgba(255, 255, 255, 0.4);
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+		
+		h2 {
+		    font-size: 30px;
+		}
+		
+		.footer-box p {
+            font-size: 14px;
+            margin: 0;
+        }
+		
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        body > * {
+            animation: fadeIn 1.5s ease-out;
+        }
+	    .scroll-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .scroll-buttons button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(3, 172, 19, 0.9);
+            color: black;
+            border-radius: 5px;
+        }
+        .scroll-buttons button:hover {
+            background-color: #043927;
+        }
+
+    </style>
+</head>
+<script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+<body>
+<div class="scroll-buttons">
+        <button onclick="scrollToTop()">Go to Top</button>
+        <button onclick="scrollToBottom()">Go to Bottom</button>
+    </div>
+<nav>
+    <div class="left-section">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471952702_1541669816533136_1690496519320867250_n.png?stp=dst-png_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFajq7ij9EgUjoVa4BghGCa7NnCDheLv6bs2cIOF4u_pu2dk0l6MvsVTFMZJdiLqIIw2Z-EWfodmfneFH59h3Cd&_nc_ohc=se_LoCSO12cQ7kNvgFcpqsm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gHKMVE-Mfh1o897Sm1apgsxuK43oPxQIUBtwz4_KBwWjA&oe=67A550C8" alt="Logo">
+        <div class="school-info">
+            <h3>Virginia Ramirez-Cruz National High School</h3>
+            <h3>Siling Bata, Pandi, Bulacan</h3>
+        </div>
+    </div>
+    <ul>
+        <li><button onclick="window.open('Home.html')">Home</button></li>
+        <li>
+            <button>Grade Level</button>
+            <ul class="dropdown">
+                <li><button onclick="window.open('Grade11.html')">Grade 11</button></li>
+                <li><button onclick="window.open('Grade12.html')">Grade 12</button></li>
+            </ul>
+        </li>
+        <li><button onclick="window.open('COption.html')">Course Options</button></li>
+        <li><button onclick="window.open('About.html')">About Us</button></li>
+    </ul>
+</nav>
+	
+<div class="header-box">
+        <h1>Grade 12 HUMSS Subjects</h1>
+    </div>
+	
+	<div class="upperheader-box">
+	</div>
+	
+	<div class="header-box">
+        <h1>1st Semester</h1>
+	</div>
+	
+	<div class="header-box">
+        <h1>Specialization</h1>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://www.inc91.com/uploads/images/202110/image_750x_61641f2d3a4c5.jpg">
+		<div>
+            <h2>Entrepreneurship</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎ Entrepreneurship is the process of discovering new ways of combining resources. When the market value generated by this new combination of resources is greater than the market value these resources can generate elsewhere individually or in some other combination, the entrepreneur makes a profit.</p>
+        </div>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoUOAuHikZ9yRBtEHhVT_7YIpHSk6VXG6Atg&s">
+		<div>
+            <h2>Practical Research 2</h2>
+		    <p>‎ ‎ ‎ ‎ ‎ ‎ ‎  The course aims to develop critical thinking and problem-solving skills of Grade 12 students through the conduct quantitative research relative to their interests and senior high school track and strand.</p>
+        </div>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfl0GOzBxtqTBZSc2Nf1ScZ5A0Wpe1TNRidw&s">
+		<div>
+            <h2>Introduction to World Religions and Belief System</h2>
+		    <p>‎ ‎ ‎ ‎ ‎ ‎ ‎  It aims to help learners understand the historical contexts of nine religions, appreciate their uniqueness and similarities and promote mutual understanding among believers of different faiths. They are expected to demonstrate understanding and appreciation of one's faith and that of others.</p>
+        </div>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXqa8_KUE2pBX61qyJwv1_mub4ik5I3zojRQXH2fzL8pEaZHVvw1lvG9kBwhgIL4tVsDCVUMlI5-2EpSJDxmphxuTDjqwG2ROcIoluxrrfoHxI7q52F8aLy-sEFxStGACdfe777IQ9cHhT/w1200-h630-p-k-no-nu/ppg+cover+photo.png">
+		<div>
+            <h2>Philippine Politics and Governance (PPG)</h2>
+		    <p>‎ ‎ ‎ ‎ ‎ ‎ ‎  Politics in the Philippines are governed by a three-branch system of government. The country is a democracy, with a president who is directly elected by the people and serves as both the head of state and the head of government.</p>
+        </div>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://previews.123rf.com/images/radiantskies/radiantskies1211/radiantskies121103765/16602925-Abstract-word-cloud-for-Creative-nonfiction-with-related-tags-and-terms-Stock-Photo.jpg">
+		<div>
+            <h2>Creative Nonfiction (CNF)</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  The Creative Nonfiction (CNF) genre can be rather elusive. It is focused on story, meaning it has a narrative plot with an inciting moment, rising action, climax and denoument, just like fiction. However, nonfiction only works if the story is based in truth, an accurate retelling of the author's life experiences.</p>
+        </div>
+	</div>
+	
+	<div class="header-box">
+        <h1>Core Subjects</h1>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H2lBrKEnWi770B7V_ElpBqQK7_AaGqnI1w&s">
+		<div>
+		    <h2> Physical Education and Health </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Physical Education and Health offers experiential learning for learners to adopt an active life for fitness and lifelong health. </p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtYT5_OpCHjTSZf_4aq34YX45QUQyaUstEUA&s">
+		<div>
+            <h2>Contemporary Philippine Arts from the Regions</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  The Philippine Contemporary Art can be classified into seven major art forms. These are painting, sculpture, architecture, film, literature, music, theatre and dance.</p>
+        </div>
+	</div>
+	
+	
+	<div class="content-box">
+		<img src="https://scontent.fmnl33-6.fna.fbcdn.net/v/t1.15752-9/473606135_492571430615192_2347289162855575757_n.png?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEiOi0BxFGFPmGpf5l0YQf2B3n2D-QPVXsHefYP5A9Ve_ldN-8nxMTVG8cQXqBdsomDdVzHE33tJq3tGfKX85wX&_nc_ohc=hsnLY-09rsEQ7kNvgGP_R7b&_nc_zt=23&_nc_ht=scontent.fmnl33-6.fna&oh=03_Q7cD1gFTj96jxj91tno5t59AEKfxKC7LoGb6ov4OdJHOb9jfZg&oe=67B47374">
+		<div>
+            <h2>Introduction to the Philosophy of the Human Person</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  The introduction to philosophy of human person is a core subject of senior high school. This is an initiation to the activity and process of philosophical reflection as a search for a synoptic vision of life.</p>
+        </div>
+	</div>
+	
+	<div class="content-box">
+		<img src="https://cdn.slidesharecdn.com/ss_thumbnails/ucsp-u1-l1-240108230958-45df9731-thumbnail.jpg?width=640&height=640&fit=bounds">
+		<div>
+            <h2>Understanding Social Culture and Politics (UCSP)</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Understanding Culture, Society, and Politics uses multidisciplinal insights from anthropology, political science, and sociology to develop student awareness of cultural, social, and political dynamics and sensitivity to cultural diversity.</p>
+        </div>
+	</div>
+	
+	<div class="upperheader-box">
+	</div>
+	
+	<div class="header-box">
+        <h1>2nd Semester</h1>
+	</div>
+	
+	<div class="header-box">
+        <h1>Specialization</h1>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlpAQ0O0mG31HP-Mwlhw6T3dLnriT3q7XOLNBwe8aZn9oCqxbUKWtnv1F2nZ0uHZ0VzwXtxB1PJfmp7kWHzyenstkqDavefpY_OdJ6x8GJsu84QSzOe-WnRcfa_hgQNoropBl0s5QWfxx-/s1600/images.jpg">
+		<div>
+		    <h2>Trends, Networks and Critical Thinking in the 21st Century Culture</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  The course provides opportunities for students to discover patterns and extract meanings from emerging trends. It aids in developing their critical and creative thinking skills— essential tools for decision making and understanding “ethics of care”.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw7Xi91pLGsNtNAN2y5-6nYo7u_t-44C8GHA&s">
+		<div>
+		    <h2>Inquiries, Investigation & Immersion</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  It defines inquiry as involving investigation through asking questions and probing to find knowledge about a problem. Investigation is described as the organized process of inquiring about a problem through inspection and assessment. Immersion is defined as a state of being deeply engaged or involved.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://0701.static.prezi.com/preview/v2/p6gtkvs4vj4b5cggjr3uyatqt76jc3sachvcdoaizecfr3dnitcq_3_0.png">
+		<div>
+		    <h2>Culminating Activity</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  A culminating activity also known as a culminating assessment, is a complex task teachers have students complete at the end of a learning unit. These tasks involve significant interaction from the students, as they aim to show their new skillsets or knowledge after a long period of learning.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://cdn.slidesharecdn.com/ss_thumbnails/empowermenttechnologies-200131013124-thumbnail.jpg?width=640&height=640&fit=bounds">
+		<div>
+		    <h2>Empowerment Technologies</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Refers to any tool or system that enables individuals and communities to take control of their lives, make informed decisions, and enhance their well-being in today’s fast-paced, technology-driven world.</p>
+		</div>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://th.bing.com/th/id/OIP.QS5CxlfLWKwDAwH9OIcWPgAAAA?rs=1&pid=ImgDetMain">
+		<div>
+		    <h2>Community Engagement, Solidarity, and Citizenship</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Community Engagement, Solidarity, and Citizenship is a specialized subject under the Academic career track and the HUMSS learning strand. The subject focuses on community-action initiatives such as community engagement, solidarity, and citizenship.</p>
+		</div>
+	</div>
+	
+	<div class="header-box">
+        <h1>Core Subjects</h1>
+	</div>
+	
+	<div class="content-box">
+	    <img src="https://www.unesco.org/sites/default/files/styles/paragraph_medium_desktop/public/2024-03/MIL%20image.png.jpg?itok=0Hh0VrXB">
+		<div>
+		    <h2> 	Media and Information Literacy</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  The subject aims to introduce the students to a basic understanding and preview of media and information as a platform or channel of communication</p>
+		</div>
+	</div>
+		
+	<div class="content-box">
+	    <img src="https://d3j0t7vrtr92dk.cloudfront.net/mtcmedicinestlino/1599947406_0.png">
+		<div>
+		    <h2>Personal Development</h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  The main topics covered in the Personal Development curriculum include self-development, developing the whole person, developmental stages in adolescence, challenges of adolescence, coping with stress, powers of the mind, mental health and well-being, emotional intelligence, personal and social relationships</p>
+		</div>
+	</div>
+
+    <div class="content-box">
+	    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1H2lBrKEnWi770B7V_ElpBqQK7_AaGqnI1w&s">
+		<div>
+		    <h2> Physical Education and Health </h2>
+		    <p> ‎ ‎ ‎ ‎ ‎ ‎ ‎  Physical Education and Health offers experiential learning for learners to adopt an active life for fitness and lifelong health. </p>
+		</div>
+	</div>
+	
+	<div class="upperheader-box">
+	</div>
+	
+<div class="footer-box">
+    <p>Copyright © 2025 | All Rights Reserved</p>
+</div>
+	
+</body>
+</html>

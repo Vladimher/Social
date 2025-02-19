@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            background-image: url("https://media.gettyimages.com/id/1356443550/video/abstract-glitter-background-bokeh-shallow-depth-of-field-selective-focus-green-version.jpg?s=640x640&k=20&c=urYXnur50snEI7ow5P16924Qa7T1RTYm2gKao5V9664=");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        nav {
+            background-color: rgba(3, 172, 19, 0.9);
+            width: 98.3%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-section img {
+            height: 60px;
+            width: 80px;
+            margin-right: 20px;
+        }
+
+        .school-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: white;
+        }
+
+        .school-info h3 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li button {
+            background-color: rgba(3, 172, 19, 0.9);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li button:hover {
+            background-color: #043927;
+            transform: scale(1.1);
+        }
+
+        nav ul li .dropdown {
+            display: none;
+            position: absolute;
+            background-color: rgba(3, 172, 19, 0.9);
+            min-width: 160px;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        nav ul li .dropdown button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        nav ul li .dropdown button:hover {
+            background-color: #043927;
+        }
+
+        .content-box, .header-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            width: 95%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-box {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            width: 94.3%;
+            border: 5px solid black;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+                         0 0 30px rgba(255, 255, 255, 0.6), 
+                         0 0 45px rgba(255, 255, 255, 0.4);
+        }
+
+        h3 {
+            font-size: 16px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 
+                         0 0 30px rgba(255, 255, 255, 0.6), 
+                         0 0 45px rgba(255, 255, 255, 0.4);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .footer-box p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        body > * {
+            animation: fadeIn 1.5s ease-out;
+        }
+        .scroll-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .scroll-buttons button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: rgba(3, 172, 19, 0.9);
+            color: black;
+            border-radius: 5px;
+        }
+        .scroll-buttons button:hover {
+            background-color: #043927;
+        }
+
+    </style>
+</head>
+<script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+<body>
+<div class="scroll-buttons">
+        <button onclick="scrollToTop()">Go to Top</button>
+        <button onclick="scrollToBottom()">Go to Bottom</button>
+    </div>
+<nav>
+    <div class="left-section">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471952702_1541669816533136_1690496519320867250_n.png?stp=dst-png_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFajq7ij9EgUjoVa4BghGCa7NnCDheLv6bs2cIOF4u_pu2dk0l6MvsVTFMZJdiLqIIw2Z-EWfodmfneFH59h3Cd&_nc_ohc=se_LoCSO12cQ7kNvgFcpqsm&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gHKMVE-Mfh1o897Sm1apgsxuK43oPxQIUBtwz4_KBwWjA&oe=67A550C8" alt="Logo">
+        <div class="school-info">
+            <h3>Virginia Ramirez-Cruz National High School</h3>
+            <h3>Siling Bata, Pandi, Bulacan</h3>
+        </div>
+    </div>
+    <ul>
+        <li><button onclick="window.open('Home.html')">Home</button></li>
+        <li>
+            <button>Grade Level</button>
+            <ul class="dropdown">
+                <li><button onclick="window.open('Grade11.html')">Grade 11</button></li>
+                <li><button onclick="window.open('Grade12.html')">Grade 12</button></li>
+            </ul>
+        </li>
+        <li><button onclick="window.open('COption.html')">Course Options</button></li>
+        <li><button onclick="window.open('About.html')">About Us</button></li>
+    </ul>
+</nav>
+
+<div class="header-box">
+    <h1>Welcome to Discover HUMSS!</h1>
+</div><br>
+
+<div class="content-box">
+    <h1> Information </h1>
+    <p> Humanities and Social Sciences (HUMSS), which stands for Humanities and Social Sciences, is an academic track in high school designed for students who are interested in exploring various aspects of human behavior, culture, and society. </p>
+    <p> This track covers subjects such as psychology, sociology, history, and literature, allowing students to understand how individuals and communities interact. By studying HUMSS, students develop critical thinking, communication, and analytical skills, which are essential for pursuing higher education in fields like education, law, psychology, and social work. </p>
+    <p> Overall, HUMSS prepares students to be more aware of the world around them and equips them with the knowledge needed for future careers that involve working with people and understanding societal issues. </p>
+</div><br>
+
+<div class="content-box">
+    <h1>History</h1>
+    <p> The Humanities and Social Sciences (HUMSS) track has evolved as an essential component of the educational curriculum, especially with the introduction of the K-12 program in the Philippines, which aimed to enhance critical thinking and social awareness among students. </p>
+    <br>
+    <p><b>1.</b>  The HUMSS track emerged from global educational reforms that recognized the need for students to understand human behavior, culture, and societal structures to address complex social issues. </p>
+    <p><b>2.</b>  This track offers subjects such as psychology, sociology, literature, and political science, allowing students to explore various aspects of humanity and society. </p>
+    <p><b>3.</b>  The increasing relevance of social sciences in addressing contemporary global challenges, such as inequality and human rights, has solidified the importance of HUMSS in academic settings. </p>
+    <p><b>4.</b>  It provides diverse career pathways, preparing students for fields like education, law, psychology, and social work, emphasizing the skills needed to work effectively with individuals and communities. </p>
+    <p><b>5.</b>  Today, HUMSS continues to adapt to the evolving landscape of education by incorporating critical contemporary issues, including digital literacy and global citizenship, ensuring that students are well-equipped to navigate and contribute to an ever-changing world. </p>
+</div><br>
+
+<div class="footer-box">
+    <p>Copyright © 2025 | All Rights Reserved</p>
+</div>
+
+</body>
+</html>
